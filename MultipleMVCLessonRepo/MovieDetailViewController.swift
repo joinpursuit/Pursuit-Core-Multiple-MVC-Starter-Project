@@ -20,13 +20,16 @@ class MovieDetailViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpViews()
+        // Do any additional setup after loading the view.
+    }
+    
+    private func setUpViews() {
         titleLabel.text = movie.name
         genreLabel.text = movie.genre
         moviePosterImage.image = UIImage(named: movie.posterImageName)
         descriptionTextView.text = movie.description
-        // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
