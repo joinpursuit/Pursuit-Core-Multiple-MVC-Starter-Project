@@ -22,24 +22,6 @@ class MoviesViewController: UIViewController {
         loadData()
     }
     
-    // MARK - UIViewController Overrides
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let segueIdentifier = segue.identifier else { fatalError("No identifier on segue") }
-        switch segueIdentifier {
-        case "movieSegue":
-            guard let movieDetailVC = segue.destination as? MovieDetailViewController else {
-                fatalError("Unexpected segue VC")
-            }
-            guard let selectedIndexPath = moviesTableView.indexPathForSelectedRow else {
-                fatalError("No row was selected")
-            }
-            movieDetailVC.movie = movies[selectedIndexPath.row]
-        default:
-            fatalError("Unexpected segue identifier")
-        }
-    }
-    
     // MARK: - Private Methods
     
     private func configureTableView() {
@@ -68,5 +50,11 @@ extension MoviesViewController: UITableViewDataSource {
     }
 }
 
-extension MoviesViewController: UITableViewDelegate {}
+extension MoviesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedMovie = movies[indexPath.row]
+        let detailMovieVC = MovieDetailViewController.fromStoryboard(usingMovie: selectedMovie)        
+        navigationController?.pushViewController(detailMovieVC, animated: true)
+    }
+}
 
