@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="syk-LJ-MFO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DmC-cd-WHr">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -64,6 +64,7 @@
                                     <outlet property="genreLabel" destination="KOE-aP-POt" id="i07-Er-Bh7"/>
                                     <outlet property="posterImage" destination="PKc-fu-ZLG" id="vIe-cV-406"/>
                                     <outlet property="titleLabel" destination="LZd-iS-cJe" id="vAg-A2-ihZ"/>
+                                    <segue destination="AuH-dW-mZJ" kind="show" identifier="listToDetailSegue" id="IXT-dD-pmk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,25 +73,92 @@
                             <outlet property="delegate" destination="syk-LJ-MFO" id="rSx-la-SGD"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="chc-eD-Qae"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAt-Cs-9Pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2608.6956521739135" y="19.419642857142858"/>
+            <point key="canvasLocation" x="3518.840579710145" y="19.419642857142858"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Detail View Controller-->
         <scene sceneID="yPh-zg-tNn">
             <objects>
-                <viewController id="AuH-dW-mZJ" sceneMemberID="viewController">
+                <viewController id="AuH-dW-mZJ" customClass="MovieDetailViewController" customModule="MultipleMVCLessonRepo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YGi-HM-OJz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Kk-CO-2ZC">
+                                <rect key="frame" x="119" y="257" width="161" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="242" id="RPL-eb-j0r"/>
+                                    <constraint firstAttribute="width" secondItem="6Kk-CO-2ZC" secondAttribute="height" multiplier="2:3" id="ugz-Jq-KOf"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjU-eH-A7e" userLabel="Title Label">
+                                <rect key="frame" x="186" y="136" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-pO-5uu" userLabel="Genre Label">
+                                <rect key="frame" x="186" y="181.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Oci-7Z-Dxr">
+                                <rect key="frame" x="87" y="535" width="240" height="213"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="213" id="DwQ-cJ-aMY"/>
+                                    <constraint firstAttribute="width" constant="240" id="iMV-IZ-BvK"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fjU-eH-A7e" firstAttribute="top" secondItem="6Jb-BG-G6q" secondAttribute="top" constant="48" id="0YT-ZH-CIu"/>
+                            <constraint firstItem="6Kk-CO-2ZC" firstAttribute="centerX" secondItem="6Jb-BG-G6q" secondAttribute="centerX" constant="-7.5" id="BVu-6J-iOT"/>
+                            <constraint firstItem="X7C-pO-5uu" firstAttribute="centerX" secondItem="6Jb-BG-G6q" secondAttribute="centerX" id="D1n-2w-2e4"/>
+                            <constraint firstItem="6Kk-CO-2ZC" firstAttribute="top" secondItem="X7C-pO-5uu" secondAttribute="bottom" constant="55" id="HHs-D9-k9g"/>
+                            <constraint firstItem="Oci-7Z-Dxr" firstAttribute="centerX" secondItem="6Jb-BG-G6q" secondAttribute="centerX" id="Nd5-lW-2jc"/>
+                            <constraint firstItem="X7C-pO-5uu" firstAttribute="top" secondItem="fjU-eH-A7e" secondAttribute="bottom" constant="25" id="SlS-YW-8bB"/>
+                            <constraint firstItem="Oci-7Z-Dxr" firstAttribute="top" secondItem="6Kk-CO-2ZC" secondAttribute="bottom" constant="36" id="qmS-95-mhV"/>
+                            <constraint firstItem="fjU-eH-A7e" firstAttribute="centerX" secondItem="6Jb-BG-G6q" secondAttribute="centerX" id="rK6-ri-Zex"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Jb-BG-G6q"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="Oci-7Z-Dxr" id="qs0-eL-mix"/>
+                        <outlet property="genreLabel" destination="X7C-pO-5uu" id="KTW-l7-k6Z"/>
+                        <outlet property="moviePosterImage" destination="6Kk-CO-2ZC" id="u7x-QD-doz"/>
+                        <outlet property="titleLabel" destination="fjU-eH-A7e" id="e4R-Wa-bjZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCa-eg-j6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3716" y="3"/>
+            <point key="canvasLocation" x="4626.0869565217399" y="2.6785714285714284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UEP-iT-pma">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DmC-cd-WHr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zp7-Ei-pbZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="syk-LJ-MFO" kind="relationship" relationship="rootViewController" id="Nav-BZ-aTW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mwJ-lK-L8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2608.6956521739135" y="19.419642857142858"/>
         </scene>
     </scenes>
 </document>
