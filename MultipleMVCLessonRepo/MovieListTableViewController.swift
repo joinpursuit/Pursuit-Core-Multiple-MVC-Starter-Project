@@ -10,6 +10,8 @@ import UIKit
 
 class MovieListTableViewController: UITableViewController {
 
+    var movies = Movie.allMovies
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,24 +27,28 @@ class MovieListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return movies.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let movie = movies[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "movieListCell", for: indexPath) as? MovieListTableViewCell {
+            cell.genreLabel.text = movie.genre
+            cell.titleLabel.text = movie.name
+            cell.posterImage.image = UIImage(named: movie.posterImageName)
+            return cell
+        }
+        return UITableViewCell()
     }
-    */
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
