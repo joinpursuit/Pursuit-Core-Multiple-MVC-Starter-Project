@@ -97,19 +97,23 @@ class MovieListTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         guard let segueIdentifier = segue.identifier else { fatalError("No identifier in segue") }
         
         switch segueIdentifier {
         case "listToDetailSegue":
             guard let movieDetailVC = segue.destination as? MovieDetailViewController else {
-                fatalError("Unexpected segue VC")
-            }
+                fatalError()            }
             guard let selectedIndexPath = tableView.indexPathForSelectedRow else {
                 fatalError("No row was selected")
             }
             movieDetailVC.movie = movies[selectedIndexPath.row]
         default:
-            fatalError("Unexpected segue identifier")
+            let alert = UIAlertController(title: "Oh no", message: "The app doesn't know how to do that.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true)
+//            fatalError("Unexpected segue identifier")
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
