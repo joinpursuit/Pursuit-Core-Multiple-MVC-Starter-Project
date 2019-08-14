@@ -12,6 +12,11 @@ class MovieDetailViewController: UIViewController {
 
     var movie: Movie!
     
+    //TODO -- maybe we need to do something about this in the source of the segue, not in its destination.
+    @IBAction func unwindToMovieList(sender: UIStoryboardSegue){
+        
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var moviePosterImage: UIImageView!
