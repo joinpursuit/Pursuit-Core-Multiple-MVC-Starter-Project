@@ -18,9 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		540AB75423030987007B790B /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewController.swift; sourceTree = "<group>"; };
-		540AB75623031328007B790B /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
-		540AB758230319FC007B790B /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		540AB75423030987007B790B /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieListTableViewController.swift; path = ../MovieListTableViewController.swift; sourceTree = "<group>"; };
+		540AB75623031328007B790B /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieListTableViewCell.swift; path = ../MovieListTableViewCell.swift; sourceTree = "<group>"; };
+		540AB758230319FC007B790B /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieDetailViewController.swift; path = ../MovieDetailViewController.swift; sourceTree = "<group>"; };
 		CD04D1E72302108400E9EEBB /* MultipleMVCLessonRepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleMVCLessonRepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD04D1EA2302108400E9EEBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD04D1EF2302108400E9EEBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,6 +41,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		540AB75A230488F3007B790B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				540AB758230319FC007B790B /* MovieDetailViewController.swift */,
+				540AB75423030987007B790B /* MovieListTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		540AB75B23048900007B790B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				540AB75623031328007B790B /* MovieListTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		540AB75C23048906007B790B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD04D1FC23021ABC00E9EEBB /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CD04D1DE2302108400E9EEBB = {
 			isa = PBXGroup;
 			children = (
@@ -62,10 +87,9 @@
 			children = (
 				CD04D1EA2302108400E9EEBB /* AppDelegate.swift */,
 				CD04D1EE2302108400E9EEBB /* Main.storyboard */,
-				540AB758230319FC007B790B /* MovieDetailViewController.swift */,
-				540AB75623031328007B790B /* MovieListTableViewCell.swift */,
-				CD04D1FC23021ABC00E9EEBB /* Movie.swift */,
-				540AB75423030987007B790B /* MovieListTableViewController.swift */,
+				540AB75A230488F3007B790B /* Controllers */,
+				540AB75B23048900007B790B /* Views */,
+				540AB75C23048906007B790B /* Models */,
 				CD04D1F12302108800E9EEBB /* Assets.xcassets */,
 				CD04D1F32302108800E9EEBB /* LaunchScreen.storyboard */,
 				CD04D1F62302108800E9EEBB /* Info.plist */,
