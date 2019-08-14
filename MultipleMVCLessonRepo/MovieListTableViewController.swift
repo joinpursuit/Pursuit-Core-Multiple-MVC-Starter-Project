@@ -50,14 +50,15 @@ class MovieListTableViewController: UITableViewController {
         return 160
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //we want to move to the vc with the storyboard ID "movieDetailViewController"
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        if let viewController = storyBoard.instantiateViewController(withIdentifier: "movieDetailViewController") as? MovieDetailViewController {
-            viewController.movie = movies[indexPath.row]
-            navigationController?.pushViewController(viewController, animated: true)
-        }
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        //we want to move to the vc with the storyboard ID "movieDetailViewController"
+//        if let viewController = MovieDetailViewController.setUpFromStoryboard() {
+//            viewController.movie = movies[indexPath.row]
+//            navigationController?.pushViewController(viewController, animated: true)
+//        }
+//        //Let's refactor.
+//    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

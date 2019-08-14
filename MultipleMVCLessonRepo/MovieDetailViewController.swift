@@ -31,6 +31,13 @@ class MovieDetailViewController: UIViewController {
         descriptionTextView.text = movie.description
     }
 
+    static func setUpFromStoryboard() -> MovieDetailViewController? {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyBoard.instantiateViewController(withIdentifier: "movieDetailViewController") as? MovieDetailViewController {
+            return viewController
+        }
+        return nil
+    }
     /*
     // MARK: - Navigation
 
